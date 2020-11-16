@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Perfil">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rLbarra_superior"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorSecundary">
+
+            <ImageView
+                android:id="@+id/iVboton_opciones"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:src="@android:drawable/ic_dialog_dialer"/>
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/sVinfo_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="25dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iVimg_perfil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="140dp"
+                        android:layout_weight="1"
+                        tools:srcCompat="@tools:sample/avatars[3]" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="25dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tVnombresyapellidos"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="30sp"
+                            android:textAlignment="center"
+                            android:text=""/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="20sp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tVocupacion"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="30dp"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:text=""/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Favores cumplidos:"
+                                    android:textSize="20sp"/>
+
+                                <TextView
+                                    android:id="@+id/tVnum_favores_cumplidos"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:text="0"
+                                    android:textSize="20sp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Favores pedidos:"
+                                    android:textSize="20sp"/>
+
+                                <TextView
+                                    android:id="@+id/tVnum_favores_pedidos"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:text="0"
+                                    android:textSize="20sp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="25dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nivel karmico"
+                        android:textAlignment="center"
+                        android:textSize="20sp"/>
+
+                    <ProgressBar
+                        android:id="@+id/pBkarma"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="100dp"
+                        android:progress="0" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <include layout="@layout/barra_de_navegacion"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"/>
+
+    <include layout="@layout/menu_desplegable"
+        android:id="@+id/iLmenu_desplegable"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:visibility="gone"/>
+
+</RelativeLayout>
