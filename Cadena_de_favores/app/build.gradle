@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+android.defaultConfig.vectorDrawables.useSupportLibrary = true
 
 android {
     compileSdkVersion 30
@@ -26,6 +27,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     //implementacion de la libreria volley
     implementation 'com.android.volley:volley:1.1.1'
+
+    //implementacion de libreria de menu de botones flotantes
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
 
     //implementacion para recycleview
     implementation "androidx.recyclerview:recyclerview:1.1.0"

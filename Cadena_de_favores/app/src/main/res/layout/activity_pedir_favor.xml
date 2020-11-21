@@ -1,73 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Pedir_favor">
 
+    <RelativeLayout
+        android:id="@+id/rLbarra_superior"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorSecundary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Pedir un favor"
+            android:textColor="@color/blanco"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:gravity="center"
-            android:text="Nuevo Favor"
-            android:textSize="30sp" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:text="Nombre del Favor"
-            android:textSize="24sp" />
+        android:orientation="vertical"
+        android:layout_below="@+id/rLbarra_superior">
 
         <EditText
             android:id="@+id/editText1"
             android:layout_width="match_parent"
-            android:layout_height="71dp"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="71dp"
-            android:text="Drescripcion"
-            android:textSize="24sp" />
+            android:layout_height="90dp"
+            android:ems="15"
+            android:hint="Titulo del Favor"
+            android:inputType="textPersonName"
+            tools:textSize="25sp" />
 
         <EditText
             android:id="@+id/editText3"
             android:layout_width="match_parent"
-            android:layout_height="76dp"
+            android:layout_height="90dp"
             android:ems="10"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Localidad:"
-            android:textSize="24sp" />
+            android:hint="Descripcion"
+            android:inputType="textPersonName"
+            tools:textSize="25sp" />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="90dp"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:hint="Localidad"
+            android:inputType="textPersonName"
+            tools:textSize="25sp" />
 
-        <Button
-            android:id="@+id/button"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="ejecutarservicios"
-            android:text=" Crear Favor"
-            android:textSize="24sp" />
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="145dp"
+                android:layout_height="45dp"
+                android:background="@color/anaranjado"
+                android:onClick="ejecutarservicios"
+                android:text="Pedir Favor"
+                android:textColor="#FDFFFFFF"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/bvolver"
+                android:layout_width="145dp"
+                android:layout_height="45dp"
+                android:background="@color/anaranjado"
+                android:text="Volver"
+                android:textColor="#FDFFFFFF"
+                android:textSize="18sp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

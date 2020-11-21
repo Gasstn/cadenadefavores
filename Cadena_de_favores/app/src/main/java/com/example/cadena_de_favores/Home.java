@@ -35,19 +35,13 @@ public class Home extends AppCompatActivity {
 
             mostrarFavores();
 
-            findViewById(R.id.ivButton).setOnClickListener(new View.OnClickListener() {
+            findViewById(R.id.ivPerfil).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     cambiar_activity(Perfil.class);
                 }
             });
-
-            findViewById(R.id.ivButton3).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //startActivity(new Intent(Home.this, CLASEDESTINO.class));
-                }
-            });
+            findViewById(R.id.ivHome).setBackgroundColor(getResources().getColor(R.color.gris2));
         }else
             cambiar_activity(Login.class);
     }
@@ -64,7 +58,7 @@ public class Home extends AppCompatActivity {
                         for(int i = 0; i < response.length(); i++){
                             try{
                                 jsonObject = response.getJSONObject(i);
-                                favor.add(new Modelofavor(jsonObject.getString("nombres"), jsonObject.getString("fecha_hora_pedido"), jsonObject.getString("titulo"), jsonObject.getString("descripcion")));
+                                favor.add(new Modelofavor(jsonObject.getString("nombres"), jsonObject.getString("fecha_hora_pedido"), jsonObject.getString("titulo"), jsonObject.getString("descripcion"), jsonObject.getString("nro_tel")));
                             }catch (JSONException e){
                                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                             }

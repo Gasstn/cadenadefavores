@@ -2,6 +2,7 @@ package com.example.cadena_de_favores;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.CookieManager;
@@ -18,9 +19,16 @@ public class Pedir_favor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedir_favor);
 
-        et1 =(EditText)findViewById(R.id.editText1);
-        et2 =(EditText)findViewById(R.id.editText2);
-        et3 =(EditText)findViewById(R.id.editText3);
+        et1 = (EditText) findViewById(R.id.editText1);
+        et2 = (EditText) findViewById(R.id.editText2);
+        et3 = (EditText) findViewById(R.id.editText3);
+
+        findViewById(R.id.bvolver).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cambiar_activity(Perfil.class);
+            }
+        });
     }
 
     public void ejecutarservicios(View v){
@@ -32,5 +40,9 @@ public class Pedir_favor extends AppCompatActivity {
         datos.put("estado","0");
 
         new Submit("https://cadefavores.000webhostapp.com/scripts/", Pedir_favor.this).StringRequest("nuevofavor.php", datos);
+    }
+
+    private void cambiar_activity(Class a){
+        startActivity(new Intent(getApplicationContext(), a));
     }
 }

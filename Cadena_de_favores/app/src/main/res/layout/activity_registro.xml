@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,125 +9,101 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="214dp"
+        android:layout_width="wrap_content"
         android:layout_height="169dp"
-        android:background="@color/blanco"
-        app:layout_constraintBottom_toTopOf="@+id/scroll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253"
-        app:srcCompat="@mipmap/logo"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/ic_logocadefav"
+        android:layout_centerHorizontal="true"/>
 
     <ScrollView
-        android:id="@+id/scroll"
-        android:layout_width="match_parent"
+        android:id="@+id/sVdatos_1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="281dp"
-                android:layout_height="47dp"
-                android:layout_marginTop="16dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="Correo electronico"
-                android:inputType="none|textEmailAddress"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/etNombre"
-                android:layout_width="281dp"
+                android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:layout_marginTop="12dp"
                 android:ems="10"
                 android:hint="Nombres"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etEmail"/>
+                android:inputType="textPersonName"/>
 
             <EditText
                 android:id="@+id/etApellido"
-                android:layout_width="281dp"
+                android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:layout_marginTop="12dp"
                 android:ems="10"
                 android:hint="Apellidos"
                 android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etNombre"/>
+                android:layout_below="@+id/etNombre"
+                android:layout_centerHorizontal="true"/>
 
             <EditText
-                android:id="@+id/etOcupacion"
-                android:layout_width="281dp"
+                android:id="@+id/etFechaNac"
+                android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:layout_marginTop="12dp"
                 android:ems="10"
-                android:hint="Ocupacion"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etApellido" />
+                android:hint="Fecha de nacimiento"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"
+                android:singleLine="true"/>
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginTop="12dp"
+                android:ems="10"
+                android:hint="Correo electronico"
+                android:inputType="textEmailAddress"/>
 
             <EditText
                 android:id="@+id/etPass"
-                android:layout_width="281dp"
+                android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:layout_marginTop="12dp"
                 android:ems="10"
                 android:hint="Contraseña"
-                android:inputType="textPersonName|textPassword"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etOcupacion" />
+                android:inputType="textPassword"
+                android:layout_below="@+id/etEmail"
+                android:layout_centerHorizontal="true" />
 
             <EditText
                 android:id="@+id/etPass2"
-                android:layout_width="281dp"
+                android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:layout_marginTop="12dp"
                 android:ems="10"
                 android:hint="Repetir contraseña"
-                android:inputType="textPersonName|textPassword"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etPass" />
+                android:inputType="textPassword"
+                android:layout_below="@+id/etPass"
+                android:layout_centerHorizontal="true"/>
 
-            <EditText
-                android:id="@+id/etFechaNac"
-                android:layout_width="281dp"
-                android:layout_height="47dp"
-                android:layout_marginVertical="12dp"
-                android:ems="10"
-                android:hint="Fecha de nacimiento"
-                android:inputType="date"
-                app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etPass2"
-                app:layout_constraintVertical_bias="0.0" />
 
-            <Button
-                android:id="@+id/btnRegistrarse"
-                android:layout_width="145dp"
-                android:layout_height="45dp"
-                android:layout_marginBottom="5dp"
-                android:background="@color/anaranjado"
-                android:text="Crear cuenta"
-                android:textColor="@color/blanco"
-                app:layout_constraintBottom_toTopOf="@+id/tvIniciar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnSiguiente"
+                    android:layout_width="145dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/anaranjado"
+                    android:text="Siguiente"
+                    android:textColor="@color/blanco"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tvIniciar"
@@ -136,13 +112,81 @@
                 android:layout_marginBottom="28dp"
                 android:text="Si ya estas registrado, inicia secion aquí"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnIniciar"
-                app:layout_constraintVertical_bias="0.246" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_below="@+id/btnSiguiente"
+                android:layout_centerHorizontal="true"/>
+        </LinearLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:id="@+id/sVdatos_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/sOcupaciones"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:spinnerMode="dialog" />
+
+            <EditText
+                android:id="@+id/etNro_tel"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:inputType="number"
+                android:layout_below="@+id/sOcupaciones"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:hint="Número telefonico" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="5dp">
+
+                <Button
+                    android:id="@+id/btnVolver"
+                    android:layout_width="wrap_content"
+                    android:paddingHorizontal="5dp"
+                    android:layout_height="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/anaranjado"
+                    android:textSize="10dp"
+                    android:text="Volver a la ventana anterior"
+                    android:textColor="@color/blanco" />
+
+                <Button
+                    android:id="@+id/btnRegistrarse"
+                    android:layout_width="145dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/anaranjado"
+                    android:text="Registrarse"
+                    android:layout_below="@+id/btnVolver"
+                    android:textColor="@color/blanco" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvIniciar2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnRegistrarse"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="28dp"
+                android:text="Si ya estas registrado, inicia secion aquí"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

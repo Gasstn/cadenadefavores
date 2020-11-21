@@ -1,18 +1,15 @@
 package com.example.cadena_de_favores;
 
 public class Modelofavor {
-    private String Nombre,Fecha,Titulo,Descripcion;
-
-    public Modelofavor(String nombre, String fecha, String titulo, String descripcion) {
-
+    private String Nombre,Fecha,Titulo,Descripcion,Nro_tel;
+    public Modelofavor(String nombre, String fecha, String titulo, String descripcion, String nro_tel) {
         Nombre=nombre;
         Fecha=fecha;
         Titulo=titulo;
         Descripcion=descripcion;
-
+        Nro_tel=nro_tel;
     }
     public Modelofavor(String favor){
-
         Descripcion=favor;
     }
 
@@ -47,5 +44,13 @@ public class Modelofavor {
 
     public void setDescripcion(String descripcion) {
         this.Descripcion = descripcion;
+    }
+
+    public String getNro_tel() {
+        return Nro_tel;
+    }
+
+    public void setNro_tel(String nro_tel) {
+        Nro_tel = nro_tel;
     }
 }

@@ -8,4 +8,6 @@
     <color name="verdeAgua">#4DDDC2</color>
     <color name="anaranjado">#FF4D4D</color>
     <color name="blanco">#FFF</color>
+    <color name="gris1">#D5D5D5</color>
+    <color name="gris2">#BABABA</color>
 </resources>

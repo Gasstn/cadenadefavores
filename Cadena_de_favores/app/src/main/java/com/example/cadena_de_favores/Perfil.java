@@ -3,11 +3,11 @@ package com.example.cadena_de_favores;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.renderscript.Sampler;
 import android.webkit.CookieManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Perfil extends AppCompatActivity {
-    ImageView iVboton_opciones;
+    Utilidades utilidades = new Utilidades(Perfil.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class Perfil extends AppCompatActivity {
                 getDatosPerfil(cookieManager.getCookie("id"));//imprime los datos del usuario de la base de datos en el perfil
         }catch(Exception ex){
             new Utilidades(Perfil.this).alert("Ocurrio un error innesperado.\nVuelva a loguearse.");
+            utilidades.alert("Ocurrio un error innesperado.\nVuelva a loguearse.");
         }
 
         //Boton que despliega el menú lateral
@@ -45,8 +46,10 @@ public class Perfil extends AppCompatActivity {
                 //View sVinfo_perfil = (View) findViewById(R.id.sVinfo_perfil);
 
                 ViewGroup.LayoutParams layoutParams_menu_desplegable = iLmenu_desplegable.getLayoutParams();
-                if(iLmenu_desplegable.getVisibility() == View.GONE) {
-                    int tamaño_menu_desplegable = new Utilidades().dpToPx(230);
+
+
+                if(iLmenu_desplegable.getVisibility() == View.GONE){
+                    int tamaño_menu_desplegable = utilidades.dpToPx(230);
                     layoutParams_menu_desplegable.width = ViewGroup.LayoutParams.WRAP_CONTENT;
                     iLmenu_desplegable.setVisibility(View.VISIBLE);
                     iLmenu_desplegable.setLayoutParams(layoutParams_menu_desplegable);
@@ -57,6 +60,14 @@ public class Perfil extends AppCompatActivity {
                     //sVinfo_perfil.setPadding(0, 0, 0, 0);
                     iLmenu_desplegable.setVisibility(View.GONE);
                 }
+            }
+        });
+
+        findViewById(R.id.ivPerfil).setBackgroundColor(getResources().getColor(R.color.gris2));
+        findViewById(R.id.ivHome).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cambiar_activity(Home.class);
             }
         });
 
@@ -111,10 +122,10 @@ public class Perfil extends AppCompatActivity {
                     campos.add("cant_favores_pedidos");
                     campos.add("cant_favores_cumplidos");
 
-                    ArrayList<HashMap<String, String>> datos_del_usuario = new Utilidades().conertir_JSONArray_ArrayHashMap(response, campos);
+                    ArrayList<HashMap<String, String>> datos_del_usuario = utilidades.conertir_JSONArray_ArrayHashMap(response, campos);
                     ((TextView) findViewById(R.id.tVnombresyapellidos)).setText(datos_del_usuario.get(0).get("nombres").concat(" ".concat(datos_del_usuario.get(0).get("apellidos"))));
                     ((TextView) findViewById(R.id.tVocupacion)).setText(datos_del_usuario.get(0).get("ocupacion"));
-                    ((ProgressBar) findViewById(R.id.pBkarma)).setProgress(Integer.parseInt(datos_del_usuario.get(0).get("nivel_karmico")));
+                    ((ProgressBar) findViewById(R.id.pBkarma)).setProgress((int) Double.parseDouble(datos_del_usuario.get(0).get("nivel_karmico")));
                     ((TextView) findViewById(R.id.tVnum_favores_pedidos)).setText(datos_del_usuario.get(0).get("cant_favores_pedidos"));
                     ((TextView) findViewById(R.id.tVnum_favores_cumplidos)).setText(datos_del_usuario.get(0).get("cant_favores_cumplidos"));
                 }

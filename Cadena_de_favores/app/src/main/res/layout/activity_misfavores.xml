@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MisFavores">
+
+    <RelativeLayout
+        android:id="@+id/rLbarra_superior"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorSecundary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Mis favores"
+            android:textColor="@color/blanco"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/LayoutTabla"
@@ -30,40 +46,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="672dp"
                     tools:itemCount="11"
-                    tools:listitem="@layout/recycler_view_item" />
+                    tools:listitem="@layout/favor" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <include layout="@layout/barra_de_navegacion"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_weight="1">
-
-        <ImageButton
-            android:id="@+id/ivButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:contentDescription="TODO"
-            app:srcCompat="?android:attr/homeAsUpIndicator" />
-
-        <ImageButton
-            android:id="@+id/ivButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="6"
-            app:srcCompat="@android:drawable/ic_search_category_default" />
-
-        <ImageButton
-            android:id="@+id/ivButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:contentDescription="TODO62"
-            app:srcCompat="?android:attr/fingerprintAuthDrawable" />
-
-    </LinearLayout>
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"/>
 </LinearLayout>
